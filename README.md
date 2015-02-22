@@ -1,6 +1,6 @@
 # Express Locals
 
-> Set mixin properties into the `res.locals` object for each request
+> Mixin properties into the `res.locals` object for each request
 
 __Usage__
 
