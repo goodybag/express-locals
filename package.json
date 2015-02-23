@@ -1,6 +1,6 @@
 {
   "name": "express-locals",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mixin properties into the `res.locals` object for each request",
   "main": "index.js",
   "directories": {
