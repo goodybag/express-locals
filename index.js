@@ -1,14 +1,18 @@
-var defaults  = require('lodash/object/fillin');
-var extend    = require('lodash/object/extend');
-var clone     = require('lodash/object/clone');
+var utils = require('lodash');
 
 module.exports = function( locals, options ){
-  options = defaults( options || {}, {
-    clone: true
+  options = utils.defaults( options || {}, {
+    cloneDeep: true
   });
 
+  options.cloneDeep = !!options.cloneDeep;
+
   return function( req, res, next ){
-    extend( res.locals, options.clone ? clone( locals ) : locals );
+    utils.extend( res.locals, ({
+      true:   utils.cloneDeep( locals )
+    , false:  locals 
+    })[ options.cloneDeep ] );
+
     return next();
   };
 };
